@@ -13,7 +13,7 @@ function NavBar () {
             <div className='rightLinks'>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
-                <button>Log In</button>
+                <Link to="/login">Log In</Link>
             </div>
         </nav>
        
