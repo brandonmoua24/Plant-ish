@@ -87,8 +87,10 @@ const LogIn = () => {
                     />
                     </div>
                     <br/>
-                    <button className='button'>Sign In</button>
+                    <button className='loginbutton'>Sign In</button>
+                    <hr></hr>
                 </form>
+                
             <p>
                 Need an Account? <Link to="/registration">Sign Up</Link>
             </p>

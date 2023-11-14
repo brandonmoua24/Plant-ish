@@ -1,12 +1,15 @@
 container{
     background-color: white;
-    margin: 100px;
+    margin: auto;
+    margin-top: 70px;
     border-radius: 40px;
     padding: 100px;
     display: grid;
     justify-content: center;
     text-align: left;
+    max-width: 700px;
 }
+
 .title{
     color: #000;
     font-family: Poppins;
@@ -31,7 +34,7 @@ input {
     border-color: black;
 }
 
-.button{
+.loginbutton{
     width: 305px;
     height: 30px;
     font-weight: 600;
@@ -40,4 +43,10 @@ input {
     background-color: black;
     border-radius: 5px;
     border-color: black;
+}
+
+hr {
+    background-color: #AAAAAA;
+    height: 1px;
+    margin: 20px 0 40px 0;
 }
