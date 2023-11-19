@@ -48,3 +48,15 @@
     grid-template-columns: 1fr 1fr 1fr;
     padding: 50px 80px 0 80px;
 }
+.add-button {
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

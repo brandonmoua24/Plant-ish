@@ -1,42 +1,38 @@
 import React from 'react-dom';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
-function Home () {
+function Home({ itemList }) {
     return (
         <>
+          
        <div className='header'>
             Browse indoor plants!
         </div>
         <div className='body'>
             Browse a wide variety of indoor house plants. Login for a personalized experience, bringing member exclusive content and capabilities.
-        </div>
-        <div className='three-col'>
-        <div className='card'>
-            <div className='container'>
-                <h3><b>Plant</b></h3>
             </div>
-      </div>
-      <div className='card'>
+ 
+            <div className='three-col'>
+                
+
+      {itemList.map((plant, index) => (
+          <div key={index} className='card'>
             <div className='container'>
-                <h3><b>Plant</b></h3>
+              <h3><b>{plant.name}</b></h3>
+              <p>Maintenance Level: {plant.maintenanceLvl}</p>
+              <p>Price: {plant.price}</p>
+              <p>Rating: {plant.rating}</p>
+              <img src={plant.img} alt={plant.name} />
             </div>
+          </div>
+        ))}
       </div>
-      <div className='card'>
-            <div className='container'>
-                <h3><b>Plant</b></h3>
-            </div>
-      </div>
-      <div className='card'>
-            <div className='container'>
-                <h3><b>Plant</b></h3>
-            </div>
-      </div>
-      <div className='card'>
-            <div className='container'>
-                <h3><b>Plant</b></h3>
-            </div>
-      </div>
-      </div>
+            
+              
+     <Link to="/add">
+        <button className="add-button">Add Plant</button>
+      </Link>
         </>
     );
 }
