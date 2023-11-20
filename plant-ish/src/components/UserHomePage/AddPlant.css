@@ -1,0 +1,44 @@
+.body-logged-in {
+    background-color: #C8BEA0;
+  }
+
+  .add-plant-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    margin: 50px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-plant-container form {
+    margin-top: 20px;
+  }
+  
+  .add-plant-container label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .add-plant-container input,
+  .add-plant-container textarea {
+    padding: 8px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+  }
+  
+  .add-plant-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #28511C;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 30px;
+  }
+  
+  .add-plant-container button:hover {
+    background-color: #4b9535;
+  }
+  

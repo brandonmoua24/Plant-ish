@@ -1,4 +1,56 @@
-.btn{
-    width: 300px;
-    border-radius: 20px;
+.registration-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    max-width: 700px;
+}
+
+.registration-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.registration-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.registration-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+
+.registration-container button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.registration-container button:hover {
+    background-color: #45a049;
+}
+
+.registration-container p {
+    text-align: center;
+}
+
+.registration-container a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.registration-container a:hover {
+    text-decoration: underline;
 }

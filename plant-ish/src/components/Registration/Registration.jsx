@@ -35,8 +35,8 @@ const Registration = () => {
     };
 
     return (
-        <div>
-            <h1>This is React WebApp</h1>
+        <div className="registration-container">
+            <h1>Sign Up</h1>
             <form onSubmit={handleOnSubmit}>
                 <input type="text" placeholder="username" value={username} onChange={(e) => setUserName(e.target.value)} />
                 <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
