@@ -1,25 +1,45 @@
-import React from 'react-dom';
+import React from 'react';
 import GreenLeaf from './GreenLeaf.png';
-import { Link } from 'react-router-dom';
-import './NavBar.css'
+import { useAuth } from '../LogIn/AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
+import './NavBar.css';
 
-function NavBar () {
-    return (
-        <nav>
-            <div className='leftElements'>
-                <img src={GreenLeaf} alt="LOGO" className="logo"/>
-                Plant-ish
-            </div>
-            <div className='rightLinks'>
-                <Link to="/">HOME</Link>
-                <Link to="/about">ABOUT</Link>
-                <div className='loginButton'>
-                <Link to="/login">LOGIN</Link>
-                </div>
-            </div>
-        </nav>
-       
-    );
-}
+const NavBar = () => {
+  const { auth, setAuth } = useAuth();
+  const isLoggedIn = auth && auth.accessToken;
+  const navigate = useNavigate();
+
+  const logout = () => {
+    setAuth(null);
+    navigate('/');
+  };
+
+  return (
+    <nav className={`nav ${isLoggedIn ? 'logged-in' : 'logged-out'}`}>
+      <div className='leftElements'>
+        <img src={GreenLeaf} alt="LOGO" className="logo" />
+        Plant-ish
+      </div>
+      <div className='rightLinks'>
+        {isLoggedIn ? (
+            <Link to="/userhomepage">Home</Link>
+            ) : (
+            <Link to="/">Home</Link>
+        )}
+        {isLoggedIn ? (
+          <Link to="/userprofile">Profile</Link>
+        ) : (
+          <Link to="/about">About</Link>
+        )}
+        {isLoggedIn ? (
+          <Link to="/" onClick={logout}> Log Out </Link>
+        ) : (
+          <Link to="/login">Log In</Link>
+        )}
+      </div>
+    </nav>
+  );
+};
+
 
 export default NavBar;

@@ -1,59 +1,69 @@
 import { useRef, useState, useEffect, useContext } from 'react';
-import AuthContext from './AuthProvider';
-import { Link } from 'react-router-dom';
+import { AuthProvider, useAuth } from './AuthProvider';
+import { Link, useNavigate } from 'react-router-dom';
 import './LogIn.css';
 
 import axios from 'axios';
-const LOGIN_URL = '/login';
+const LOGIN_URL = 'http://localhost:8008/api/user/login';
 
 const LogIn = () => {
-    const { setAuth } = useContext(AuthContext);
-    const userRef = useRef();
-    const errRef = useRef();
+  const navigate = useNavigate();
+  const { setAuth } = useAuth();
+  const userRef = useRef();
+  const errRef = useRef();
 
-    const [user, setUser] = useState('');
-    const [pwd, setPwd] = useState('');
-    const [errMsg, setErrMsg] = useState('');
-    const [success, setSuccess] = useState(false);
+  const [user, setUser] = useState('');
+  const [pwd, setPwd] = useState('');
+  const [errMsg, setErrMsg] = useState('');
 
-    useEffect(() => {
-        userRef.current.focus();
-    }, [])
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
 
-    useEffect(() => {
-        setErrMsg('');
-    }, [user, pwd])
+  useEffect(() => {
+    setErrMsg('');
+  }, [user, pwd]);
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post(LOGIN_URL,
-                JSON.stringify({ user, pwd }),
-                {
-                    headers: { 'Content-Type': 'application/json' },
-                    withCredentials: true
-                }
-            );
-            console.log(JSON.stringify(response?.data));
-            const accessToken = response?.data?.accessToken;
-            const roles = response?.data?.roles;
-            setAuth({ user, pwd, roles, accessToken });
-            setUser('');
-            setPwd('');
-            setSuccess(true);
-        } catch (err) {
-            if (!err?.response) {
-                setErrMsg('No Server Response');
-            } else if (err.response?.status === 400) {
-                setErrMsg('Missing Username or Password');
-            } else if (err.response?.status === 401) {
-                setErrMsg('Unauthorized');
-            } else {
-                setErrMsg('Login Failed');
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+        const response = await axios.post(
+            LOGIN_URL,
+            { username: user, password: pwd },
+            {
+                headers: { 'Content-Type': 'application/json' },
+                withCredentials: true,
             }
-            errRef.current.focus();
+        );
+
+        console.log(response.data);
+
+        const accessToken = response?.data?.accessToken;
+
+        if (!accessToken) {
+            console.error('No access token received');
+            return;
         }
+
+        setAuth({ user, pwd, accessToken });
+
+        setUser('');
+        setPwd('');
+        navigate('/userhomepage');
+    } catch (err) {
+        console.error(err);
+        if (!err?.response) {
+            setErrMsg('No Server Response');
+        } else if (err.response?.status === 400) {
+            setErrMsg('Missing Username or Password');
+        } else if (err.response?.status === 401) {
+            setErrMsg('Incorrect Username or Password');
+        } else {
+            setErrMsg('Login Failed');
+        }
+        errRef.current.focus();
     }
+};
 
     return (
             <container>
@@ -62,8 +72,7 @@ const LogIn = () => {
                 <br/>
                 <form onSubmit={handleSubmit}>
                     <div>
-                    <label>Email/Username </label>
-                    <br/>
+                    <label>Username </label>
                     <input
                         type="text"
                         id="username"
@@ -77,7 +86,6 @@ const LogIn = () => {
                     <br/>
                     <div>
                     <label>Password </label>
-                    <br/>
                     <input
                         type="password"
                         id="password"
@@ -87,10 +95,8 @@ const LogIn = () => {
                     />
                     </div>
                     <br/>
-                    <button className='loginbutton'>Sign In</button>
-                    <hr></hr>
+                    <button className='button'>Sign In</button>
                 </form>
-                
             <p>
                 Need an Account? <Link to="/registration">Sign Up</Link>
             </p>

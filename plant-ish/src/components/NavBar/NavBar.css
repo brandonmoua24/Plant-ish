@@ -10,6 +10,11 @@ nav {
     color: #28511C;
 }
 
+
+nav.nav.logged-in {
+    background-color: none;
+  }
+  
 .leftElements {
     font-family: Poppins;
     font-size: 40px;
