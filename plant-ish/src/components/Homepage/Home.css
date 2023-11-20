@@ -20,26 +20,25 @@
     margin: 20px 100px 0 100px;
 }
 
-.card {
+/* .card {
     box-shadow: 0 2px 4px 0 #242424;
     transition: 0.3s;
     border-radius: 10px;
     background-color: #ffffff;
     margin: 20px;
-}
+} */
 
-.card img {
+/* .card img {
     border-radius: 10px 10px 0 0;
-}
+} */
 
 .card:hover {
     box-shadow: 0 4px 8px 0 #242424;
 }
 
-.container {
-    margin: auto;
-    padding: 0 5px 10px 5px;
-}
+/* .container {
+    padding: 0 0px 0px 0px;
+} */
 
 .three-col {
     margin: 0 auto;
@@ -48,8 +47,9 @@
     grid-template-columns: 1fr 1fr 1fr;
     padding: 50px 80px 0 80px;
 }
+
 .add-button {
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-bottom: 10px;
     padding: 10px;
     background-color: #4caf50;
@@ -59,4 +59,4 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
