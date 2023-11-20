@@ -16,7 +16,7 @@ function Home() {
     };
 
     fetchPlants();
-  }, []); 
+  }, []);
 
   return (
     <>
@@ -28,6 +28,42 @@ function Home() {
 
         <h3>Featured Plants:</h3>
         <div className="plant-container">
+          {plants.map((plant) => (
+            <div key={plant._id} className="plant-card">
+              <img src={plant.imageUrl} alt={plant.name} />
+              <div className="plant-details">
+                <strong>Name:</strong> {plant.name}<br />
+                <strong>Description:</strong> {plant.description}<br />
+                <strong>Maintenance Level:</strong> {plant.maintenancelvl}<br />
+                <strong>Rating:</strong> {plant.rating}<br />
+                <strong>Price:</strong> ${plant.price}<br />
+              </div>
+            </div>
+          ))}
+          {plants.map((plant) => (
+            <div key={plant._id} className="plant-card">
+              <img src={plant.imageUrl} alt={plant.name} />
+              <div className="plant-details">
+                <strong>Name:</strong> {plant.name}<br />
+                <strong>Description:</strong> {plant.description}<br />
+                <strong>Maintenance Level:</strong> {plant.maintenancelvl}<br />
+                <strong>Rating:</strong> {plant.rating}<br />
+                <strong>Price:</strong> ${plant.price}<br />
+              </div>
+            </div>
+          ))}
+          {plants.map((plant) => (
+            <div key={plant._id} className="plant-card">
+              <img src={plant.imageUrl} alt={plant.name} />
+              <div className="plant-details">
+                <strong>Name:</strong> {plant.name}<br />
+                <strong>Description:</strong> {plant.description}<br />
+                <strong>Maintenance Level:</strong> {plant.maintenancelvl}<br />
+                <strong>Rating:</strong> {plant.rating}<br />
+                <strong>Price:</strong> ${plant.price}<br />
+              </div>
+            </div>
+          ))}
           {plants.map((plant) => (
             <div key={plant._id} className="plant-card">
               <img src={plant.imageUrl} alt={plant.name} />

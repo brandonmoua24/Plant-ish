@@ -2,18 +2,21 @@
 .plant-item a:active {
   background: #ffd900;
 }
-.plant-item { display: flex;}
+
+.plant-item {
+  display: flex;
+}
 
 .plant-content {
   padding: 0;
 }
 
-.plant-img {
+/* .plant-img {
   width: 150px;
   height: 150px;
   margin-right: 1rem;
   border-radius: 25%;
-}
+} */
 
 
 .plant-info h2 {
@@ -23,8 +26,9 @@
   color: #113946;
   display: inline;
 }
+
 .plant-info h3 {
-    margin: 0.2em 0;
+  margin: 0.2em 0;
 }
 
 .plant-item:hover h2,

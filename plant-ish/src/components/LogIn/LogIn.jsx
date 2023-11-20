@@ -7,71 +7,71 @@ import axios from 'axios';
 const LOGIN_URL = 'http://localhost:8008/api/user/login';
 
 const LogIn = () => {
-  const navigate = useNavigate();
-  const { setAuth } = useAuth();
-  const userRef = useRef();
-  const errRef = useRef();
+    const navigate = useNavigate();
+    const { setAuth } = useAuth();
+    const userRef = useRef();
+    const errRef = useRef();
 
-  const [user, setUser] = useState('');
-  const [pwd, setPwd] = useState('');
-  const [errMsg, setErrMsg] = useState('');
+    const [user, setUser] = useState('');
+    const [pwd, setPwd] = useState('');
+    const [errMsg, setErrMsg] = useState('');
 
-  useEffect(() => {
-    userRef.current.focus();
-  }, []);
+    useEffect(() => {
+        userRef.current.focus();
+    }, []);
 
-  useEffect(() => {
-    setErrMsg('');
-  }, [user, pwd]);
+    useEffect(() => {
+        setErrMsg('');
+    }, [user, pwd]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-        const response = await axios.post(
-            LOGIN_URL,
-            { username: user, password: pwd },
-            {
-                headers: { 'Content-Type': 'application/json' },
-                withCredentials: true,
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post(
+                LOGIN_URL,
+                { username: user, password: pwd },
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true,
+                }
+            );
+
+            console.log(response.data);
+
+            const accessToken = response?.data?.accessToken;
+
+            if (!accessToken) {
+                console.error('No access token received');
+                return;
             }
-        );
 
-        console.log(response.data);
+            setAuth({ user, pwd, accessToken });
 
-        const accessToken = response?.data?.accessToken;
-
-        if (!accessToken) {
-            console.error('No access token received');
-            return;
+            setUser('');
+            setPwd('');
+            navigate('/userhomepage');
+        } catch (err) {
+            console.error(err);
+            if (!err?.response) {
+                setErrMsg('No Server Response');
+            } else if (err.response?.status === 400) {
+                setErrMsg('Missing Username or Password');
+            } else if (err.response?.status === 401) {
+                setErrMsg('Incorrect Username or Password');
+            } else {
+                setErrMsg('Login Failed');
+            }
+            errRef.current.focus();
         }
-
-        setAuth({ user, pwd, accessToken });
-
-        setUser('');
-        setPwd('');
-        navigate('/userhomepage');
-    } catch (err) {
-        console.error(err);
-        if (!err?.response) {
-            setErrMsg('No Server Response');
-        } else if (err.response?.status === 400) {
-            setErrMsg('Missing Username or Password');
-        } else if (err.response?.status === 401) {
-            setErrMsg('Incorrect Username or Password');
-        } else {
-            setErrMsg('Login Failed');
-        }
-        errRef.current.focus();
-    }
-};
+    };
 
     return (
-            <container>
+        <container>
             <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
-                <div className='title'>LOGIN</div>
-                <br/>
-                <form onSubmit={handleSubmit}>
-                    <div>
+            <div className='title'>Login:</div>
+            <br />
+            <form onSubmit={handleSubmit}>
+                <div>
                     <label>Username </label>
                     <input
                         type="text"
@@ -82,9 +82,9 @@ const LogIn = () => {
                         value={user}
                         required
                     />
-                    </div>
-                    <br/>
-                    <div>
+                </div>
+                <br />
+                <div>
                     <label>Password </label>
                     <input
                         type="password"
@@ -93,14 +93,14 @@ const LogIn = () => {
                         value={pwd}
                         required
                     />
-                    </div>
-                    <br/>
-                    <button className='button'>Sign In</button>
-                </form>
+                </div>
+                <br />
+                <button className='button'>Sign In</button>
+            </form>
             <p>
                 Need an Account? <Link to="/registration">Sign Up</Link>
             </p>
-            </container>
+        </container>
     )
 }
 
