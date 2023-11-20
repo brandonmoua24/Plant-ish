@@ -43,17 +43,16 @@ router.post('/login', async (req, res) => {
         }
 
         // Create a simple token
-        const accessToken = jwt.sign({ username: user.username, roles: user.roles }, 'plantish', {
+        const accessToken = jwt.sign({ username: user.username }, 'plantish', {
             expiresIn: '1h',
         });
 
         console.log('Login successful');
-        res.json({ success: true, message: 'Login successful', accessToken, roles: user.roles });
+        res.json({ success: true, message: 'Login successful', accessToken });
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Internal server error' });
     }
 });
-
 
 module.exports = router;

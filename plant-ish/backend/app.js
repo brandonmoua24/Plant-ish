@@ -19,7 +19,7 @@ app.get('/user/:id', (req, res) => {
 });
 
 
-const conn_str = 'mongodb+srv://plantish:plantish@cluster0.rqqi0ou.mongodb.net/Plantish-DB'
+const conn_str = 'mongodb+srv://plantish:plantish@cluster0.rqqi0ou.mongodb.net/'
 mongoose.set('strictQuery', false);
 mongoose.connect(conn_str).then(() => {
     app.listen(port)

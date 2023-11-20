@@ -8,7 +8,6 @@ import UserHomePage from './components/UserHomePage/UserHomePage';
 import UserProfile from './components/UserProfile/UserProfile';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
-import { Axios } from 'axios';
 
 function App() {
   const [itemList, setItemList] = useState([
