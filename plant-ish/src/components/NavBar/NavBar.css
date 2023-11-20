@@ -27,12 +27,19 @@ nav.nav.logged-in {
 
 .rightLinks {
     font-family: Poppins;
-    font-size: 25px;
+    font-size: 17px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     display: flex;
     gap: 40px;
+}
+
+.loginButton {
+    color: #C0C0C0;
+    border-radius: 5px;
+    background: #FFF;
+    padding: 0 10px 0 10px;
 }
 
 a {

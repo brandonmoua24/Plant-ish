@@ -65,51 +65,43 @@ const LogIn = () => {
     }
 };
 
-  return (
-    <container>
-      <p
-        ref={errRef}
-        className={errMsg ? 'errmsg' : 'offscreen'}
-        aria-live="assertive"
-      >
-        {errMsg}
-      </p>
-      <div className="title">LOGIN</div>
-      <br />
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username </label>
-          <input
-            type="text"
-            id="username"
-            ref={userRef}
-            autoComplete="off"
-            onChange={(e) => setUser(e.target.value)}
-            value={user}
-            required
-          />
-        </div>
-        <br />
-        <div>
-          <label>Password </label>
-          <input
-            type="password"
-            id="password"
-            onChange={(e) => setPwd(e.target.value)}
-            value={pwd}
-            required
-          />
-        </div>
-        <br />
-        <button type="submit" className="button" onClick={handleSubmit}>
-            Sign In
-        </button>
-      </form>
-      <p>
-        Need an Account? <Link to="/registration">Sign Up</Link>
-      </p>
-    </container>
-  );
-};
+    return (
+            <container>
+            <p ref={errRef} className={errMsg ? "errmsg" : "offscreen"} aria-live="assertive">{errMsg}</p>
+                <div className='title'>LOGIN</div>
+                <br/>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                    <label>Username </label>
+                    <input
+                        type="text"
+                        id="username"
+                        ref={userRef}
+                        autoComplete="off"
+                        onChange={(e) => setUser(e.target.value)}
+                        value={user}
+                        required
+                    />
+                    </div>
+                    <br/>
+                    <div>
+                    <label>Password </label>
+                    <input
+                        type="password"
+                        id="password"
+                        onChange={(e) => setPwd(e.target.value)}
+                        value={pwd}
+                        required
+                    />
+                    </div>
+                    <br/>
+                    <button className='button'>Sign In</button>
+                </form>
+            <p>
+                Need an Account? <Link to="/registration">Sign Up</Link>
+            </p>
+            </container>
+    )
+}
 
 export default LogIn;

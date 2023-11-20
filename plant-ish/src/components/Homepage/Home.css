@@ -1,13 +1,12 @@
 .header {
     color: #28511C;
     font-family: Poppins;
-    font-size: 50px;
+    font-size: 70px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
     text-align: left;
-    padding-left: 50px;
-    padding-right: 50px;
+    margin: 100px 100px 0 100px;
 }
 
 .body {
@@ -15,9 +14,49 @@
     font-family: Poppins;
     font-size: 25px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 400;
     line-height: normal;
     text-align: left;
-    padding-left: 50px;
-    padding-right: 50px;
+    margin: 20px 100px 0 100px;
 }
+
+.card {
+    box-shadow: 0 2px 4px 0 #242424;
+    transition: 0.3s;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin: 20px;
+}
+
+.card img {
+    border-radius: 10px 10px 0 0;
+}
+
+.card:hover {
+    box-shadow: 0 4px 8px 0 #242424;
+}
+
+.container {
+    margin: auto;
+    padding: 0 5px 10px 5px;
+}
+
+.three-col {
+    margin: 0 auto;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 50px 80px 0 80px;
+}
+.add-button {
+    margin-top: 10px; 
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }

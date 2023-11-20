@@ -1,12 +1,15 @@
 container{
     background-color: white;
-    margin: 100px;
+    margin: auto;
+    margin-top: 70px;
     border-radius: 40px;
     padding: 100px;
     display: grid;
     justify-content: center;
     text-align: left;
+    max-width: 700px;
 }
+
 .title{
     color: #000;
     font-family: Poppins;
@@ -19,17 +22,31 @@ container{
 label {
     color: #000;
     font-family: Poppins;
-    font-size: 20px;
+    font-size: 15px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
 }
 
 input {
-    float: right;
-    height: 15px;
+    height: 30px;
+    width: 300px;
+    border-color: black;
 }
 
-.button{
-    width: 240px;
+.loginbutton{
+    width: 305px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    border-color: black;
+}
+
+hr {
+    background-color: #AAAAAA;
+    height: 1px;
+    margin: 20px 0 40px 0;
 }

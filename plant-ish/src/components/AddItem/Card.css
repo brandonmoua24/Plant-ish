@@ -1,0 +1,13 @@
+.card {
+  width: 466.297px;
+  height: 602px;
+  flex-shrink: 0;
+  border-radius: 28.873px;
+  box-shadow: 5.77458px 5.77458px 5.77458px 0px rgba(0, 0, 0, 0.25);
+  background: lightgray -0.448px -180.063px / 100% 162.18% no-repeat;
+}
+
+.card img {
+  border-radius: 20px 20px 0 0; /* round corners*/
+  width:400px; 
+}
