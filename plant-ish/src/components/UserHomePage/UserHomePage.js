@@ -44,14 +44,17 @@ const UserHomePage = () => {
 
     return (
         <>
-            {/* <h2>Welcome User!</h2>
-
-            <h3>Plants in Database:</h3> */}
         <div className='header'>
         Keep track of your plants!
       </div>
-      <div className='body'>
-        You can create, edit, and remove your list of plants. Don’t worry, they will be here when you get back!            <h3>Featured Plants:</h3>
+     
+        <div className="pageinfo">You can create, edit, and remove your list of plants. Don’t worry, they will be here when you get back!
+        <h3>Featured Plants:</h3>
+        </div>
+        <Link to="/addplant">
+                    <button className="add-plant-button">Add Plant</button>
+        </Link>
+        <div className="user-body">
             <ul className="user-plants-container">
                 {plants.map((plant) => (
                     <li key={plant._id} className="user-plant-card">
@@ -72,11 +75,6 @@ const UserHomePage = () => {
                     </li>
                 ))}
             </ul>
-            <Link to="/addplant">
-                <div className="button-container">
-                    <button>Add Plant</button>
-                </div>
-            </Link>
             </div>
         </>
         
