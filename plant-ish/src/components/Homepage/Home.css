@@ -17,15 +17,15 @@
 }
 
 .plant-container {
-    /* display: flex;
+    display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
-    text-align: left;
-    margin: auto;
+    /*text-align: left;
+     margin: auto;
     grid-template-columns: 1fr 1fr 1fr; */
     margin: 0 auto;
-    display: grid;
+    
     /* gap: 10px; */
     grid-template-columns: 1fr 1fr 1fr;
     padding: 30px;
