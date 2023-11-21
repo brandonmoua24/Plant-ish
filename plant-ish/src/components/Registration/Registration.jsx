@@ -36,11 +36,14 @@ const Registration = () => {
 
     return (
         <div className="registration-container">
-            <h1>Sign Up</h1>
+            <div className='title'>Sign Up:</div>
             <form onSubmit={handleOnSubmit}>
-                <input type="text" placeholder="username" value={username} onChange={(e) => setUserName(e.target.value)} />
-                <input type="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-                <input type="password" placeholder="confirm password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+                <label>Username </label>
+                <input type="text" value={username} onChange={(e) => setUserName(e.target.value)} />
+                <label>Password </label>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <label>Confirm Password </label>
+                <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
                 <button type="submit">Register</button>
             </form>
             <p>

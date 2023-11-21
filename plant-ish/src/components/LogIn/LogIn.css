@@ -1,4 +1,4 @@
-container{
+container {
     background-color: white;
     margin: auto;
     margin-top: 70px;
@@ -10,10 +10,10 @@ container{
     max-width: 700px;
 }
 
-.title{
+.title {
     color: #000;
     font-family: Poppins;
-    font-size: 50px;
+    font-size: 40px;
     font-style: normal;
     font-weight: 500;
     line-height: normal;
@@ -24,8 +24,9 @@ label {
     font-family: Poppins;
     font-size: 15px;
     font-style: normal;
-    font-weight: 500;
-    line-height: normal;
+    font-weight: 600;
+    /* line-height: normal; */
+    padding-right: 10px;
 }
 
 input {
@@ -34,7 +35,7 @@ input {
     border-color: black;
 }
 
-.loginbutton{
+.loginbutton {
     width: 305px;
     height: 30px;
     font-weight: 600;
@@ -49,4 +50,11 @@ hr {
     background-color: #AAAAAA;
     height: 1px;
     margin: 20px 0 40px 0;
+}
+
+.button {
+    font-size: 20px;
+    background-color: #28511C;
+    color: white;
+    border-radius: 10px;
 }
