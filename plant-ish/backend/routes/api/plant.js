@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Plant = require('../../models/Plant');
+const jwt = require('jsonwebtoken');
 
 // Get all plants
 router.get('/', (req, res) => {

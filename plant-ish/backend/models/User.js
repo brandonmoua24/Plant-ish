@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const UserSchema = new mongoose.Schema({
     username: {
@@ -13,22 +14,37 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    roles: {
-        type: Array, // or String depending on your implementation
-        default: [], // adjust the default value as needed
-    },
     update_date: {
         type: Date,
         default: Date.now,
     },
 });
 
-UserSchema.methods.comparePassword = function(candidatePassword) {
+UserSchema.methods.comparePassword = async function(candidatePassword) {
     try {
-        return candidatePassword === this.password;
+        return await bcrypt.compare(candidatePassword, this.password);
     } catch (error) {
         throw new Error(error);
     }
 };
 
-module.exports = User = mongoose.model('user', UserSchema);
+UserSchema.pre('save', async function (next) {
+    try {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(this.password, salt);
+        this.password = hashedPassword;
+
+        if (this.isModified('confirmpassword')) {
+            const hashedConfirmPassword = await bcrypt.hash(this.confirmpassword, salt);
+            this.confirmpassword = hashedConfirmPassword;
+        }
+
+        next();
+    } catch (error) {
+        next(error);
+    }
+});
+
+const User = mongoose.model('User', UserSchema);
+
+module.exports = User;

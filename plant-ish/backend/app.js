@@ -9,9 +9,9 @@ const plant = require('./routes/api/plant');
 const bodyParser = require('body-parser');
 
 const corsOptions = {
-    origin: 'http://localhost:3000',  // Replace with your frontend URL
+    origin: 'http://localhost:3000',
     credentials: true,
-};
+}
 
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
@@ -23,7 +23,6 @@ app.use('/api/login', user);
 app.get('/user/:id', (req, res) => {
     res.send('user ${req.params.i}')
 });
-
 
 const conn_str = 'mongodb+srv://plantish:plantish@cluster0.rqqi0ou.mongodb.net/Plantish-DB'
 mongoose.set('strictQuery', false);

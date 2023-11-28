@@ -9,7 +9,7 @@ const UserHomePage = () => {
     const isLoggedIn = auth && auth.accessToken;
 
     const [plants, setPlants] = useState([]);
-    const userName = auth?.user?.name || '';
+    //const userName = auth?.user?.name || '';
 
     useEffect(() => {
         const fetchPlants = async () => {
