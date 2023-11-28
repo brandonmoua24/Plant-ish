@@ -8,6 +8,7 @@ import UserHomePage from './components/UserHomePage/UserHomePage';
 import UserProfile from './components/UserProfile/UserProfile';
 import AddPlant from './components/UserHomePage/AddPlant';
 import EditPlant from './components/UserHomePage/EditPlant';
+import PlantInfo from './components/UserHomePage/PlantInfo';
 import { useAuth } from './components/LogIn/AuthProvider';
 import { BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
 import './App.css';
@@ -40,6 +41,10 @@ function App() {
           <Route
             path="/editplant/:id"
             element={auth ? <EditPlant /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/plantinfo/:id"
+            element={auth ? <PlantInfo /> : <Navigate to="/login" />}
           />
         </Routes>
       </div>

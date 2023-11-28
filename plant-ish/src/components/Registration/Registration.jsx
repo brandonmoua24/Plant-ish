@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import './Registration.css';
 
-const REGISTER_URL = 'http://localhost:8008/api/user';  // Update the URL to match your backend route
+const REGISTER_URL = 'http://localhost:8008/api/user';
 
 const Registration = () => {
     const [username, setUserName] = useState("");
@@ -17,7 +17,7 @@ const Registration = () => {
             const result = await axios.post(REGISTER_URL, {
                 username,
                 password,
-                confirmpassword: confirmPassword,  // Match the server-side field name
+                confirmpassword: confirmPassword,  
             });
 
             console.warn(result.data);

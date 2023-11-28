@@ -4,19 +4,36 @@ import axios from 'axios';
 
 function Home() {
   const [plants, setPlants] = useState([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
-  useEffect(() => {
-    const fetchPlants = async () => {
-      try {
-        const response = await axios.get('http://localhost:8008/api/plant');
-        setPlants(response.data);
-      } catch (error) {
-        console.error('Error fetching plants:', error.message);
-      }
+  const fetchPlants = async () => {
+        try {
+            const response = await axios.get('http://localhost:8008/api/plant');
+            setPlants(response.data);
+        } catch (error) {
+            console.error('Error fetching plants:', error.message);
+        }
     };
 
-    fetchPlants();
-  }, []); 
+    useEffect(() => {
+        fetchPlants();
+    }, []);
+
+     const handleSearchChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    const handleSearch = () => {
+        const filteredPlants = plants.filter((plant) =>
+            plant.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setPlants(filteredPlants);
+    };
+
+    const handleClearSearch = () => {
+        setSearchQuery('');
+        fetchPlants();
+    };
 
   return (
     <>
@@ -27,6 +44,16 @@ function Home() {
         Browse a wide variety of indoor house plants. Login for a personalized experience, bringing member exclusive content and capabilities.
 
         <h3>Featured Plants:</h3>
+        <div className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Search plants..."
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                />
+                <button onClick={handleSearch}>Search</button>
+                <button onClick={handleClearSearch}>Clear</button>
+            </div>
         <div className="plant-container">
           {plants.map((plant) => (
             <div key={plant._id} className="plant-card">

@@ -3,21 +3,18 @@ const router = express.Router();
 const Plant = require('../../models/Plant');
 const jwt = require('jsonwebtoken');
 
-// Get all plants
 router.get('/', (req, res) => {
     Plant.find()
         .then((plants) => res.json(plants))
         .catch((err) => res.status(404).json({ noitemfound: 'No plants found' }));
 });
 
-// Get a specific plant by ID
 router.get('/:id', (req, res) => {
     Plant.findById(req.params.id)
         .then((plant) => res.json(plant))
         .catch((err) => res.status(404).json({ noitemsfound: 'No plant found' }));
 });
 
-// Add a new plant
 router.post('/', async (req, res) => {
     const { name, description, maintenancelvl, rating, price, imageUrl } = req.body;
 
@@ -39,7 +36,6 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Update a plant by ID
 router.put('/:id', async (req, res) => {
     try {
         const result = await Plant.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -49,7 +45,6 @@ router.put('/:id', async (req, res) => {
     }
 });
 
-// Delete a plant by ID
 router.delete('/:id', async (req, res) => {
     try {
         const result = await Plant.findByIdAndDelete(req.params.id);

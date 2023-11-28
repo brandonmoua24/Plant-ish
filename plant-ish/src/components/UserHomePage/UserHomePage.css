@@ -110,3 +110,52 @@
   text-align: left;
   margin-left: 75px;
 }
+
+.search-tools {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 75px;
+  margin-right: 75px;
+  margin-top: 30px;
+}
+
+.search,
+.add {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  margin-right: auto;
+  display: inline;
+}
+
+.add {
+  margin-left: auto;
+}
+
+
+.search button {
+  margin-left: 10px;
+}
+
+.add .add-plant-button {
+  margin-left: 10px;
+}
+
+.search-button {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: #28511C;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.user-plant-header{
+  margin-left: 75px;
+  text-align: left;
+}
