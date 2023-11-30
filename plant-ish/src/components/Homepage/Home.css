@@ -30,7 +30,7 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
-    margin-left: 100px;
+    margin-left: 50px;
     text-align: left;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .user-plant-header {
-    margin-left: 150px;
+    margin-left: 0px;
     font-size: 20px;
     text-align: left;
     color: #28511C;
