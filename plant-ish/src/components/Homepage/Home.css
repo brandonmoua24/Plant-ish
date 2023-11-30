@@ -1,4 +1,4 @@
-.header {
+.home-header {
     font-size: 50px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -7,7 +7,7 @@
     color: #28511C;
 }
 
-.body {
+.home-body {
     font-size: 20px;
     font-weight: 600;
     line-height: 1.5;
@@ -16,7 +16,7 @@
     color: #28511C;
 }
 
-.pageinfo {
+.home-pageinfo {
     font-size: 20px;
     font-weight: 600;
     line-height: 1.5;
@@ -25,12 +25,12 @@
     color: #28511C;
 }
 
-.plant-container {
+.home-plant-container {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: flex-start;
-    margin-left: 50px;
+    margin: 0 auto;
     text-align: left;
 }
 
@@ -40,34 +40,38 @@
     }
 } */
 
-.plant-card {
+.home-plant-card {
     box-shadow: 0 2px 4px 0 #242424;
     transition: 0.3s;
     border-radius: 20px;
     background-color: #ffffff;
-    margin: 30px 50px 30px 40px;
+    margin: 30px 20px 30px 20px;
     flex-shrink: 0;
     height: fit-content;
     width: 350px;
     overflow: hidden;
     /* grid-template-columns: 1fr 1fr 1fr; */
+    max-height: 475px;
+    min-height: 475px;
 }
 
-.plant-card img {
+.home-plant-card img {
     border-radius: 20px 20px 0 0;
     /* round corners*/
-    height: 240px;
+    height: 350px;
     width: 350px;
 }
 
-.plant-details {
+.home-plant-details {
     padding: 20px;
+    padding-bottom: 30px;
     font-size: 15px;
+    font-weight: 600;
     overflow: hidden;
     color: black;
 }
 
-.search-tool {
+.home-search-tool {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,31 +80,21 @@
     margin-top: 40px;
 }
 
-.search,
-.add {
+.home-search {
     display: flex;
     align-items: center;
 }
 
-.search {
+.home-search {
     margin-right: auto;
     display: inline;
 }
 
-.add {
-    margin-left: auto;
-}
-
-
-.search button {
+.home-search button {
     margin-left: 10px;
 }
 
-.add .add-plant-button {
-    margin-left: 10px;
-}
-
-.search-button {
+.home-search-button {
     margin-bottom: 15px;
     padding: 10px 15px;
     font-size: 16px;
@@ -111,9 +105,13 @@
     cursor: pointer;
 }
 
-.user-plant-header {
+.home-plant-header {
     margin-left: 0px;
     font-size: 20px;
     text-align: left;
     color: #28511C;
 }
+
+.home-search-input {
+    border-radius: 5px;
+  }

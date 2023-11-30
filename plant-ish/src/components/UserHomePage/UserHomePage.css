@@ -16,8 +16,10 @@
   font-weight: 600;
   line-height: 1.5;
   margin-left: 75px;
+  margin-right: 75px;
   text-align: left;
   color: #28511C;
+  
 }
 
 .user-plants-container {
@@ -34,25 +36,27 @@
   transition: 0.3s;
   border-radius: 20px;
   background-color: #ffffff;
-  margin: 30px 50px 30px 40px;
+  margin: 30px 20px 30px 20px;
   flex-shrink: 0;
   height: fit-content;
   width: 350px;
   overflow: hidden;
   /* grid-template-columns: 1fr 1fr 1fr; */
+  max-height: 530px;
+  min-height: 530px;
 }
 
 .user-plant-card img {
   border-radius: 20px 20px 0 0;
   /* round corners*/
-  height: 240px;
+  height: 350px;
   width: 350px;
 }
 
 .user-plant-details {
   padding: 20px;
   padding-bottom: 30px;
-  font-size: 22px;
+  font-size: 15px;
   font-weight: 600;
   overflow: hidden;
   color: #28511C;
@@ -172,4 +176,12 @@
   font-size: 20px;
   text-align: left;
   color: #28511C;
+}
+
+.button-features {
+  display: inline-block;
+}
+
+.search-input {
+  border-radius: 5px;
 }

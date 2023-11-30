@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import axios from 'axios';
 
@@ -37,38 +38,40 @@ function Home() {
 
   return (
     <>
-      <div className='header'>
+      <div className='home-header'>
         Browse indoor plants!
       </div>
-      <div className="pageinfo">
+      <div className="home-pageinfo">
         Browse a wide variety of indoor house plants. Login for a personalized experience, bringing member exclusive content and capabilities.
 
 
-        <div className="search-tool">
-          <div className="search">
+        <div className="home-search-tool">
+          <div className="home-search">
             <input
+              className='home-search-input'
               type="text"
               placeholder="Search plants..."
               value={searchQuery}
               onChange={handleSearchChange}
             />
-            <button className="search-button" onClick={handleSearch}>Search</button>
-            <button className="search-button" onClick={handleClearSearch}>Clear</button>
+            <button className="home-search-button" onClick={handleSearch}>Search</button>
+            <button className="home-search-button" onClick={handleClearSearch}>Clear</button>
           </div>
         </div>
-        <div className="user-plant-header"><h3>Featured Plants:</h3></div>
-        <div className="plant-container">
+        <div className="home-plant-header"><h3>Featured Plants:</h3></div>
+        <div className="home-plant-container">
           {plants.map((plant) => (
-            <div key={plant._id} className="plant-card">
+            <Link key={plant._id} to={`/homeplantinfo/${plant._id}`}>
+            <div key={plant._id} className="home-plant-card">
               <img src={plant.imageUrl} alt={plant.name} />
-              <div className="plant-details">
+              <div className="home-plant-details">
                 <strong>Name:</strong> {plant.name}<br />
-                <strong>Description:</strong> {plant.description}<br />
                 <strong>Maintenance Level:</strong> {plant.maintenancelvl}<br />
                 <strong>Rating:</strong> {plant.rating}<br />
                 <strong>Price:</strong> ${plant.price}<br />
               </div>
             </div>
+            </Link>
           ))}
         </div>
       </div>

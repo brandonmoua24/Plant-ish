@@ -1,23 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useAuth } from '../LogIn/AuthProvider';
+import './HomePlantInfo.css';
 import axios from 'axios';
-import './PlantInfo.css';
 
-const PlantInfo = () => {
+
+const HomePlantInfo = () => {
   const [plant, setPlant] = useState({});
-  const { auth }  = useAuth();
-  const isLoggedIn = auth && auth.accessToken;
   const { id } = useParams();
-
-  useEffect(() => {
-    console.log('isLoggedIn:', isLoggedIn);
-    document.body.className = isLoggedIn ? 'body-logged-in' : 'body-logged-out';
-
-    return () => {
-      document.body.className = '';
-    };
-  }, [isLoggedIn]);
 
   useEffect(() => {
     const fetchPlant = async () => {
@@ -34,22 +23,22 @@ const PlantInfo = () => {
 
   return (
     <>
-      <div className="plant-info-container">
+      <div className="home-plant-info-container">
 
-        <div className="plant-details">
-          <h3 className="plant-name">{plant.name}</h3>
-          <img className="plant-info-img" src={plant.imageUrl} alt={plant.name} />
-          <div className='plant-info-text'>
+        <div className="home-plant-info-details">
+          <h3 className="home-plant-info-name">{plant.name}</h3>
+          <img className="home-plant-info-img" src={plant.imageUrl} alt={plant.name} />
+          <div className='home-plant-info-text'>
             <strong>Description:</strong> {plant.description}<br />
             <strong>Maintenance Level:</strong> {plant.maintenancelvl}<br />
             <strong>Rating:</strong> {plant.rating}<br />
             <strong>Price:</strong> ${plant.price}<br />
           </div>
-          <Link to='/userhomepage' className="link-button">Exit Plant Information Page</Link>
+          <Link to='/' className="home-plant-info-link-button">Exit Plant Information Page</Link>
         </div>
       </div>
     </>
   );
 };
 
-export default PlantInfo;
+export default HomePlantInfo;

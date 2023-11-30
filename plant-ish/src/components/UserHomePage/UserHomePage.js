@@ -69,6 +69,7 @@ const UserHomePage = () => {
             <div className="search-tools">
                 <div className="search">
                     <input
+                        className="search-input"
                         type="text"
                         placeholder="Search plants..."
                         value={searchQuery}
@@ -87,15 +88,16 @@ const UserHomePage = () => {
                         <li key={plant._id} className="user-plant-card">
                             <img className="plant-info-img" src={plant.imageUrl} alt={plant.name} />
                             <div className="user-plant-details">
-                                {plant.name}<br />
+                                <strong>{plant.name}</strong><br />
+                                <strong>Rating:</strong> {plant.rating}<br />
+                                <strong>Maintenance Level:</strong> {plant.maintenancelvl}<br />
+                                <strong>Price:</strong> ${plant.price}<br />
 
                                 {/*
                                 <strong>Description:</strong> {plant.description}<br />
-                                <strong>Maintenance Level:</strong> {plant.maintenancelvl}<br />
-                                <strong>Rating:</strong> {plant.rating}<br />
-                                <strong>Price:</strong> ${plant.price}<br />
                                  */}
                                 
+                                <div className="button-features">
                                 <Link to={`/plantinfo/${plant._id}`}><button className="editButton">Plant Info</button></Link>
                                 <Link to={`/editplant/${plant._id}`}>
                                     <button className="editButton">Edit</button>
@@ -103,13 +105,15 @@ const UserHomePage = () => {
                                 <button className="deleteButton" onClick={() => handleDeletePlant(plant._id)}>
                                     Remove
                                 </button>
+                                </div>
                             </div>
                         </li>
                     ))}
-                    
+                    <div>
                     <Link to="/addplant">
                     <button className="add-plant-button"> + </button>
                     </Link>
+                    </div>
                 </ul>
             </div>
         </>

@@ -9,6 +9,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 import AddPlant from './components/UserHomePage/AddPlant';
 import EditPlant from './components/UserHomePage/EditPlant';
 import PlantInfo from './components/UserHomePage/PlantInfo';
+import HomePlantInfo from './components/Homepage/HomePlantInfo';
 import { useAuth } from './components/LogIn/AuthProvider';
 import { BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
 import './App.css';
@@ -26,6 +27,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/login" element={<LogIn />} />
           <Route exact path="/registration" element={<Registration />} />
+          <Route exact path="/homeplantinfo/:id" element={<HomePlantInfo />} />
           <Route
             path="/userhomepage"
             element={auth ? <UserHomePage /> : <Navigate to="/login" />}
