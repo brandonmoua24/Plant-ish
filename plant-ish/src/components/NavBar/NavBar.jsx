@@ -17,14 +17,16 @@ const NavBar = () => {
   return (
     <nav className={`nav ${isLoggedIn ? 'logged-in' : 'logged-out'}`}>
       <div className='leftElements'>
-        <img src={GreenLeaf} alt="LOGO" className="logo" />
-        Plant-ish
+        <Link to="/userhomepage">
+          <img src={GreenLeaf} alt="LOGO" className="logo" />
+          Plant-ish
+        </Link>
       </div>
       <div className='rightLinks'>
         {isLoggedIn ? (
-            <Link to="/userhomepage">Home</Link>
-            ) : (
-            <Link to="/">Home</Link>
+          <Link to="/userhomepage">Home</Link>
+        ) : (
+          <Link to="/">Home</Link>
         )}
         {isLoggedIn ? (
           <Link to="/userprofile">Profile</Link>

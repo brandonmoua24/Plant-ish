@@ -77,11 +77,6 @@ const UserHomePage = () => {
                     <button className="search-button" onClick={handleSearch}>Search</button>
                     <button className="search-button" onClick={handleClearSearch}>Clear</button>
                 </div>
-                <div className="add">
-                    <Link to="/addplant">
-                    <button className="add-plant-button">Add Plant</button>
-                    </Link>
-                </div>
             </div>
 
             <div className="user-plant-header"><h3>Featured Plants:</h3></div>
@@ -111,6 +106,10 @@ const UserHomePage = () => {
                             </div>
                         </li>
                     ))}
+                    
+                    <Link to="/addplant">
+                    <button className="add-plant-button"> + </button>
+                    </Link>
                 </ul>
             </div>
         </>

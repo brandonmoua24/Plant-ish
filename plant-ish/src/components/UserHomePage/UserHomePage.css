@@ -34,25 +34,28 @@
   transition: 0.3s;
   border-radius: 20px;
   background-color: #ffffff;
-  margin: 30px;
+  margin: 30px 50px 30px 40px;
   flex-shrink: 0;
   height: fit-content;
-  width: 320px;
+  width: 350px;
   overflow: hidden;
+  /* grid-template-columns: 1fr 1fr 1fr; */
 }
 
 .user-plant-card img {
   border-radius: 20px 20px 0 0;
   /* round corners*/
   height: 240px;
-  width: 320px;
+  width: 350px;
 }
 
 .user-plant-details {
   padding: 20px;
-  font-size: 15px;
+  padding-bottom: 30px;
+  font-size: 22px;
+  font-weight: 600;
   overflow: hidden;
-  color: black;
+  color: #28511C;
 }
 
 .user-plant-details strong {
@@ -62,14 +65,16 @@
 }
 
 .add-plant-button {
-  margin-bottom: 15px;
-  padding: 10px 15px;
-  font-size: 16px;
   background-color: #28511C;
-  color: #fff;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  color: white;
+  padding: 30px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 40px;
+  margin: 170px 150px 150px 170px;
+  border-radius: 100%;
 }
 
 .add-plant-button:hover {
@@ -79,12 +84,14 @@
 .editButton {
   padding: 10px 15px;
   font-size: 16px;
+  font-weight: 600;
   background-color: #28511C;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 5%;
+  margin-left: 5px;
 }
 
 .editButton:hover {
@@ -94,21 +101,26 @@
 .deleteButton {
   padding: 10px 15px;
   font-size: 16px;
+  font-weight: 600;
   background-color: #949494;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 15px;
+  margin-left: 40px;
 }
 
 .deleteButton:hover {
   background-color: #cec8c8;
 }
 
-.pageinfo{
-  text-align: left;
+.pageinfo {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
   margin-left: 75px;
+  text-align: left;
+  color: #28511C;
 }
 
 .search-tools {
@@ -117,7 +129,7 @@
   align-items: center;
   margin-left: 75px;
   margin-right: 75px;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .search,
@@ -155,7 +167,9 @@
   cursor: pointer;
 }
 
-.user-plant-header{
-  margin-left: 75px;
+.user-plant-header {
+  margin-left: 150px;
+  font-size: 20px;
   text-align: left;
+  color: #28511C;
 }

@@ -4,7 +4,7 @@ import "./About.css";
 
 function About() {
   return (
-    <div>
+    <div className='body'>
       <h2>About Plant-ish</h2>
 
       <div>
@@ -77,9 +77,13 @@ function About() {
           part of a community that shares your love for all things green. Let's
           grow together!
         </p>
-        <Link to='/registration'>Sign Up</Link>
-        <Link to='/'>Explore Plants</Link>
       </div>
+      <Link to="/registration">
+        <button className="about-page-button">Sign Up</button>
+      </Link>
+      <Link to="/">
+        <button className="about-page-button">Explore Plants</button>
+      </Link>
     </div>
   );
 }
