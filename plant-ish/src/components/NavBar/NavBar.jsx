@@ -24,24 +24,20 @@ const NavBar = () => {
       </div>
       <div className='rightLinks'>
         {isLoggedIn ? (
-          <Link to="/userhomepage">Home</Link>
+          <>
+            <Link to="/userhomepage">Home</Link>
+            <Link to="/" onClick={logout}> Log Out </Link>
+          </>
         ) : (
-          <Link to="/">Home</Link>
-        )}
-        {isLoggedIn ? (
-          <Link to="/userprofile">Profile</Link>
-        ) : (
-          <Link to="/about">About</Link>
-        )}
-        {isLoggedIn ? (
-          <Link to="/" onClick={logout}> Log Out </Link>
-        ) : (
-          <Link to="/login">Log In</Link>
+          <>
+            <Link to="/">Home</Link>
+            <Link to="/about">About</Link>
+            <Link to="/login">Log In</Link>
+          </>
         )}
       </div>
     </nav>
   );
 };
-
 
 export default NavBar;

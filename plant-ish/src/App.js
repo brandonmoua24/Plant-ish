@@ -5,7 +5,6 @@ import About from './components/About/About';
 import Registration from './components/Registration/Registration';
 import LogIn from './components/LogIn/LogIn';
 import UserHomePage from './components/UserHomePage/UserHomePage';
-import UserProfile from './components/UserProfile/UserProfile';
 import AddPlant from './components/UserHomePage/AddPlant';
 import EditPlant from './components/UserHomePage/EditPlant';
 import PlantInfo from './components/UserHomePage/PlantInfo';
@@ -33,10 +32,6 @@ function App() {
             element={auth ? <UserHomePage /> : <Navigate to="/login" />}
           />
           <Route
-            path="/userprofile"
-            element={auth ? <UserProfile /> : <Navigate to="/login" />}
-          />
-          <Route
             path="/addplant"
             element={auth ? <AddPlant /> : <Navigate to="/login" />}
           />
@@ -48,6 +43,7 @@ function App() {
             path="/plantinfo/:id"
             element={auth ? <PlantInfo /> : <Navigate to="/login" />}
           />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </div>
     </Router>
