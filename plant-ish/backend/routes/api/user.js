@@ -14,10 +14,21 @@ router.get('/:id', (req, res) => {
     .then((user) => res.json(user))
     .catch((err) => res.status(404).json({ noitemsfound: 'No User found'}));
 });
-router.post('/', (req, res) => {
-    User.create(req.body)
-    .then((user) => res.json({ msg: 'User added successfully'}))
-    .catch((err) => res.status(400).json({ error: 'Unable to add this user'}));
+router.post('/', async (req, res) => {
+    const { username, password, confirmpassword } = req.body;
+
+    try {
+        const existingUser = await User.findOne({ username });
+
+        if (existingUser) {
+            return res.status(400).json({ error: 'Username already taken. Please choose a different username.' });
+        }
+        const user = await User.create({ username, password, confirmpassword });
+        res.json({ msg: 'User added successfully' });
+    } catch (error) {
+        console.error('Error during registration:', error.message);
+        res.status(400).json({ error: 'Unable to add this user' });
+    }
 });
 router.put('/:id', (req, res) => {
     User.findByIdAndUpdate(req.params.id, req.body)

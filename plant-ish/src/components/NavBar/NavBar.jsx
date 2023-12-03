@@ -25,7 +25,8 @@ const NavBar = () => {
       <div className='rightLinks'>
         {isLoggedIn ? (
           <>
-            <Link to="/userhomepage">Home</Link>
+            <Link to='/'>View Home Page</Link>
+            <Link to="/userhomepage">User Home</Link>
             <Link to="/" onClick={logout}> Log Out </Link>
           </>
         ) : (
