@@ -35,8 +35,6 @@ const Registration = () => {
                 setUserName("");
                 setPassword("");
                 setConfirmPassword("");
-
-                // Clear registration message after 10 seconds
                 setTimeout(() => {
                     setRegistrationMessage("");
                 }, 2000);
@@ -52,7 +50,6 @@ const Registration = () => {
         }
     };
 
-    // Clear the error messages when the user changes the username or passwords
     const handleUsernameChange = (e) => {
         setUserName(e.target.value);
         setUsernameError("");
@@ -65,7 +62,7 @@ const Registration = () => {
 
     const handleConfirmPasswordChange = (e) => {
         setConfirmPassword(e.target.value);
-        setPasswordError(""); // Clear the password error when confirm password is changed
+        setPasswordError("");
     };
 
     return (
